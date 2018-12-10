@@ -1,0 +1,26 @@
+<ion-header class="tolbar">
+    <ion-navbar>
+      <button ion-button menuToggle right>
+        <ion-icon name="menu" style="color: #fff"></ion-icon>
+      </button>
+      <ion-title><img src="assets/imgs/logo.png" width="120px"></ion-title>
+
+    </ion-navbar>
+  </ion-header>
+
+
+
+
+<ion-content   class="body-background" style="padding-right: 5px;">
+
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+
+    <ion-list no-lines id="myInput">
+        <button ion-item *ngFor="let item of lista" (click)="abrirPdf(item.ID_PDT, item.TIPO, item.ARQUIVO)" class="body-background botao-lista">
+          {{ item.TITULO }}
+        </button>
+    </ion-list>
+
+
+</ion-content>
