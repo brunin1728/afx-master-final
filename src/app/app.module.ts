@@ -1,3 +1,5 @@
+import { CadastroPage } from './../pages/cadastro/cadastro';
+import { LoginPage } from './../pages/login/login';
 import { ConteudohtmlPage } from './../pages/conteudohtml/conteudohtml';
 import { VerPdfPage } from './../pages/ver-pdf/ver-pdf';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,7 +24,9 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     ListPage,
     ListaConteudosPage,
     VerPdfPage,
-    ConteudohtmlPage
+    ConteudohtmlPage,
+    LoginPage,
+    CadastroPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,9 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     ListPage,
     ListaConteudosPage,
     VerPdfPage,
-    ConteudohtmlPage
+    ConteudohtmlPage,
+    LoginPage,
+    CadastroPage
   ],
   providers: [
     StatusBar,

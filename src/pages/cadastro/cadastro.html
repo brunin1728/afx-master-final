@@ -1,0 +1,29 @@
+<ion-header class="tolbar">
+  <ion-navbar>
+    <ion-title><img src="assets/imgs/logo.png" width="120px"></ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding class="body-background">
+  <ion-item class="body-input" no-lines >
+    <ion-input type="text" placeholder="Nome Completo" [(ngModel)]="NOME" ></ion-input>
+  </ion-item>
+  <br>
+  <ion-item class="body-input" no-lines >
+    <ion-input type="text" placeholder="Login" [(ngModel)]="USUARIO" ></ion-input>
+  </ion-item>
+  <br>
+  <ion-item class="body-input"  no-lines >
+    <ion-input type="password" placeholder="Senha" [(ngModel)]="SENHA" ></ion-input>
+  </ion-item>
+  <br>
+
+  <ion-item class="body-input"  no-lines >
+    <ion-input type="email" placeholder="E-mail" [(ngModel)]="EMAIL" ></ion-input>
+  </ion-item>
+  <br>
+  <button ion-button full class="botao-login" (click)="cadastrar()"><b>CADASTRAR</b></button>
+</ion-content>

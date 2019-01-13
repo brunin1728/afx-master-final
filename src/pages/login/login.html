@@ -1,0 +1,25 @@
+<ion-header class="tolbar">
+  <ion-navbar>
+    <ion-title><img src="assets/imgs/logo.png" width="120px"></ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding class="body-background">
+
+<img src="assets/imgs/logo-usuario.png" width="100%" style="padding-left: 70px; padding-right: 70px; padding-bottom: 10px">
+<ion-item class="body-input" no-lines >
+  <ion-input type="text" placeholder="Login" [(ngModel)]="USUARIO" ></ion-input>
+</ion-item>
+<br>
+<ion-item class="body-input"  no-lines >
+  <ion-input type="password" placeholder="Senha" [(ngModel)]="SENHA" ></ion-input>
+</ion-item>
+<br>
+<button ion-button full class="botao-login" (click)="login()"><b>ENTRAR</b></button>
+<Br>
+  <a (click)="cadastre()" style="color: #fff">Cadastre-se</a>
+
+</ion-content>

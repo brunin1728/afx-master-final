@@ -1,3 +1,4 @@
+import { LoginPage } from './../pages/login/login';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -12,19 +13,65 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  public ETAPA: any;
+  rootPage: any;
+  private IF_ETAPA = localStorage.getItem('ETAPA') ? localStorage.getItem('ETAPA').length : null;
+   pages: Array<{title: string, component: any}>;
+   public ATIVACAO1 = localStorage.getItem('ATIVACAO') ? localStorage.getItem('ATIVACAO').length : 0;
+   public ATIVACAO: any;
 
-  pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    this.initializeApp();
 
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'ínicio', component: HomePage }
-    ];
+  etapas(){
+
+    this.ETAPA = localStorage.getItem('ETAPA');
+
+    if(this.IF_ETAPA == null){
+       this.rootPage = LoginPage;
+    }else{
+
+       if(this.ETAPA == '1'){
+
+      this.rootPage = HomePage;
+    }
+
+    }
 
   }
+
+
+
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+    this.etapas();
+    this.initializeApp();
+    this.ativar();
+    // used for an example of ngFor and navigation
+
+
+
+
+  }
+
+  ativar(){
+    if(this.ATIVACAO1){
+      this.ATIVACAO = localStorage.getItem('ATIVACAO');
+      }else{
+        this.ATIVACAO = 0;
+      }
+
+    if(this.ATIVACAO == '1'){
+      this.pages = [
+        { title: 'ínicio', component: HomePage }
+      ];
+    }else{
+      this.pages = [
+        { title: 'ínicio', component: HomePage },
+        { title: 'Ativar Plano', component: HomePage },
+      ];
+    }
+
+  }
+
 
   initializeApp() {
     this.platform.ready().then(() => {
