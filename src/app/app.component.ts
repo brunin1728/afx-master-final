@@ -61,11 +61,11 @@ export class MyApp {
 
     if(this.ATIVACAO == '1'){
       this.pages = [
-        { title: 'ínicio', component: HomePage }
+        { title: 'Início', component: HomePage }
       ];
     }else{
       this.pages = [
-        { title: 'ínicio', component: HomePage },
+        { title: 'Início', component: HomePage },
         { title: 'Ativar Plano', component: HomePage },
       ];
     }

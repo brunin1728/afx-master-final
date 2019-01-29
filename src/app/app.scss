@@ -1,14 +1,30 @@
 .toolbar-background {
   background-color: #292929;
+
+}
+
+.header2 {
+
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
 }
+
 .tolbar{
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 5px;
 }
 
+
+.footer2 {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 0px !important;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px;
+}
 
 ion-title {
   width: 100%;
@@ -17,6 +33,13 @@ ion-title {
   margin-left: 15px
 }
 
+.ion-button {
+margin-right: 15px !important;
+}
+
+.ion-button2 {
+margin-left: 15px !important;
+}
 
 .body-background {
   background-color: #000;

@@ -513,4 +513,22 @@ noembed, noscript, param {
 p {
 	font-family: Roboto;
 }
+
+
+
+ion-header ion-icon.back-button-icon.icon {
+  color: #fff;
+  z-index: 999999999999 !important;
+  margin-left: -65px !important;
 }
+
+
+ion-title {
+  width: 130%;
+  height: 100%;
+  text-align: center;
+  margin-left: -70px
+}
+}
+
+

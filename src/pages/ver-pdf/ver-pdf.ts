@@ -26,7 +26,7 @@ export class VerPdfPage implements PipeTransform {
     public navParams: NavParams,
     private sanitizer: DomSanitizer
     ) {
-      this.pdfLink = this.sanitizer.bypassSecurityTrustResourceUrl('http://afxconsult.com.br/admin/gerador/viewer.php?file=http://afxconsult.com.br/admin/arquivos/conteudos/'+this.ID);
+      this.pdfLink = this.sanitizer.bypassSecurityTrustResourceUrl('http://www.afx.dev.blueserver.top/gerador/viewer.php?file=http://www.afx.dev.blueserver.top/arquivos/conteudos/'+this.ID);
   }
 
 
