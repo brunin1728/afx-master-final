@@ -43,7 +43,7 @@ export class MyApp {
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.etapas();
-    this.initializeApp();
+  this.initializeApp();
     this.ativar();
     // used for an example of ngFor and navigation
 

@@ -72,8 +72,12 @@ cadastre(){
     localStorage.setItem("ID", this.DADOS.ID);
     localStorage.setItem("ATIVACAO", this.DADOS.ATIVACAO);
 
-    this.navCtrl.setRoot(HomePage);
 
+    if(this.DADOS.ATIVACAO === '1'){
+      window.location.reload();
+    }else{
+    this.navCtrl.setRoot(HomePage);
+    }
     this.FechaCarregando();
   }else{
     this.FechaCarregando();
