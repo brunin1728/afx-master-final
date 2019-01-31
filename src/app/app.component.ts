@@ -51,6 +51,7 @@ export class MyApp {
     public splashScreen: SplashScreen,
     public ApiProvider: ApiProvider,
     ) {
+
   this.chamarlista();
   this.etapas();
   this.initializeApp();
