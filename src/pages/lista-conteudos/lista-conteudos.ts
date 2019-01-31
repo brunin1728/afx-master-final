@@ -106,6 +106,13 @@ getItems(ev: any) {
 
 
 
+
+
+
+
+
+
+
 ionViewDidEnter() {
 
 

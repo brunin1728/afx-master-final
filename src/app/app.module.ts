@@ -1,3 +1,4 @@
+import { SuportePage } from './../pages/suporte/suporte';
 import { CadastroPage } from './../pages/cadastro/cadastro';
 import { LoginPage } from './../pages/login/login';
 import { ConteudohtmlPage } from './../pages/conteudohtml/conteudohtml';
@@ -16,6 +17,7 @@ import { ListaConteudosPage } from '../pages/lista-conteudos/lista-conteudos';
 import { ApiProvider } from '../providers/api/api';
 import { HttpModule } from '@angular/http';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { PaginaHtmlPage } from '../pages/pagina-html/pagina-html';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     VerPdfPage,
     ConteudohtmlPage,
     LoginPage,
-    CadastroPage
+    CadastroPage,
+    PaginaHtmlPage,
+    SuportePage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,9 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     VerPdfPage,
     ConteudohtmlPage,
     LoginPage,
-    CadastroPage
+    CadastroPage,
+    PaginaHtmlPage,
+    SuportePage
   ],
   providers: [
     StatusBar,

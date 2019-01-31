@@ -1,3 +1,4 @@
+import { PaginaHtmlPage } from './../pages/pagina-html/pagina-html';
 import { LoginPage } from './../pages/login/login';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
@@ -6,6 +7,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { ApiProvider } from '../providers/api/api';
+import { ListaConteudosPage } from '../pages/lista-conteudos/lista-conteudos';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,6 +22,7 @@ export class MyApp {
    pages: Array<{title: string, component: any}>;
    public ATIVACAO1 = localStorage.getItem('ATIVACAO') ? localStorage.getItem('ATIVACAO').length : 0;
    public ATIVACAO: any;
+   public lista: any;
 
 
 
@@ -41,13 +45,16 @@ export class MyApp {
 
 
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    this.etapas();
+  constructor(
+    public platform: Platform,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen,
+    public ApiProvider: ApiProvider,
+    ) {
+  this.chamarlista();
+  this.etapas();
   this.initializeApp();
-    this.ativar();
-    // used for an example of ngFor and navigation
-
-
+  this.ativar();
 
 
   }
@@ -61,7 +68,8 @@ export class MyApp {
 
     if(this.ATIVACAO == '1'){
       this.pages = [
-        { title: 'Início', component: HomePage }
+        { title: 'Início', component: HomePage },
+        { title: 'Teste Html Externo', component: PaginaHtmlPage },
       ];
     }else{
       this.pages = [
@@ -73,12 +81,60 @@ export class MyApp {
   }
 
 
+
+
+
+
+  chamarlista(){
+
+
+    this.ApiProvider.GetCategorias().subscribe(data=>{
+
+       const response = (data as any);
+       const objeto_retorno = JSON.parse(response._body);
+
+         this.lista = objeto_retorno.DADOS;
+
+  this.lista = objeto_retorno.DADOS;
+
+//  console.log(this.lista);
+
+
+   },error=>{
+     console.log(error);
+
+   }
+
+   )
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
+
     });
   }
 
@@ -87,4 +143,12 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
+  openPage2(page) {
+    // Reset the content nav to have just this page
+    // we wouldn't want the back button to show in this scenario
+    this.nav.setRoot(ListaConteudosPage, { id: page});
+  }
+
+
 }

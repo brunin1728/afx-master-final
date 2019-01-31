@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import swal from 'sweetalert';
 import { ApiProvider } from '../../providers/api/api';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 @IonicPage()
 @Component({
@@ -25,7 +26,9 @@ export class LoginPage {
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
     public ApiProvider: ApiProvider,
+    public splashScreen: SplashScreen,
     ) {
+      splashScreen.hide();
   }
 
 

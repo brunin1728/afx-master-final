@@ -28,4 +28,9 @@ export class ApiProvider {
       return this.http.get(this.baseApi + 'usuario.php?acao=cadastrar&USUARIO=' + usuario + '&SENHA=' + senha + '&EMAIL=' + email + '&NOME=' + nome);
      }
 
+
+     GetCategorias(){
+      return this.http.get(this.baseApi + 'index.php?r=categoria');
+     }
+
 }

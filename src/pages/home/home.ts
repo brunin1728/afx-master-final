@@ -1,8 +1,10 @@
+import { SuportePage } from './../suporte/suporte';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ListaConteudosPage } from '../lista-conteudos/lista-conteudos';
 import swal from 'sweetalert';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 
 @Component({
@@ -10,16 +12,17 @@ import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser'
   templateUrl: 'home.html'
 })
 export class HomePage {
-  public ATIVACAO = localStorage.getItem('ATIVACAO');
+  public ATIVACAO: any = localStorage.getItem('ATIVACAO');
   public ID = localStorage.getItem('ID');
 
 
 
   constructor(
     public navCtrl: NavController,
-    private iab: InAppBrowser
+    private iab: InAppBrowser,
+    public splashScreen: SplashScreen,
     ) {
-
+      splashScreen.hide();
   }
 
 ativar(){
@@ -36,6 +39,11 @@ let url = "http://afxconsult.top/admin/pagar/?id=" +  this.ID;
   abrir(id){
     this.navCtrl.setRoot(ListaConteudosPage, { id: id});
   }
+
+  suporte(){
+    this.navCtrl.push(SuportePage);
+  }
+
 
 
 }
