@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { Searchbar } from 'ionic-angular';
-import { InAppBrowserOptions } from '@ionic-native/in-app-browser';
+import { InAppBrowserOptions, InAppBrowser } from '@ionic-native/in-app-browser';
 
 
 
@@ -22,12 +22,15 @@ export class ListaConteudosPage {
   loader: any;
   public CAT: any = this.navParams.get("id");
   public ATIVACAO: any = localStorage.getItem('ATIVACAO');
+  public ID = localStorage.getItem('ID');
+
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
     public ApiProvider: ApiProvider,
+    private iab: InAppBrowser,
     ) {
 if(this.ATIVACAO === '1'){
   this.chamarlista();
