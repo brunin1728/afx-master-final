@@ -23,7 +23,8 @@ export class MyApp {
    public ATIVACAO1 = localStorage.getItem('ATIVACAO') ? localStorage.getItem('ATIVACAO').length : 0;
    public ATIVACAO: any;
    public lista: any;
-
+   public ATIVO: any;
+   public USER: any;
 
 
   etapas(){
@@ -52,6 +53,7 @@ export class MyApp {
     public ApiProvider: ApiProvider,
     ) {
 
+  this.verificar();
   this.chamarlista();
   this.etapas();
   this.initializeApp();
@@ -76,13 +78,31 @@ export class MyApp {
       this.pages = [
         { title: 'Início', component: HomePage },
         { title: 'Ativar Plano', component: HomePage },
+        { title: 'Teste Html Externo', component: PaginaHtmlPage },
       ];
     }
 
   }
 
 
+verificar(){
+  this.USER = this.ETAPA = localStorage.getItem('USUARIO');
+  this.ApiProvider.verifica(this.USER).subscribe(data=>{
 
+    const response = (data as any);
+    const objeto_retorno = JSON.parse(response._body);
+
+      this.ATIVO = objeto_retorno.DADOS;
+
+      localStorage.setItem("ATIVACAO", this.ATIVO.ATIVACAO);
+
+
+
+},error=>{
+  console.log(error);
+
+})
+}
 
 
 

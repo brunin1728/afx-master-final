@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { Searchbar } from 'ionic-angular';
+import { InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 
 
@@ -20,7 +21,7 @@ export class ListaConteudosPage {
    public lista: any;
   loader: any;
   public CAT: any = this.navParams.get("id");
-
+  public ATIVACAO: any = localStorage.getItem('ATIVACAO');
 
   constructor(
     public navCtrl: NavController,
@@ -28,7 +29,12 @@ export class ListaConteudosPage {
     public loadingCtrl: LoadingController,
     public ApiProvider: ApiProvider,
     ) {
-      this.chamarlista();
+if(this.ATIVACAO === '1'){
+  this.chamarlista();
+}
+
+
+
   }
 
 abrirPdf(id,tipo,arquivo){
@@ -39,6 +45,16 @@ if(tipo === '1'){
 }
 }
 
+ativar(){
+  const options: InAppBrowserOptions = {
+    zoom: 'no',
+    location: 'yes'
+  }
+let url = "http://afxconsult.top/admin/pagar/?id=" +  this.ID;
+ const browser = this.iab.create(url, '_system', options);
+
+
+}
 
   AbreCarregando() {
     this.loader = this.loadingCtrl.create({

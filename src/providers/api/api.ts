@@ -33,4 +33,9 @@ export class ApiProvider {
       return this.http.get(this.baseApi + 'index.php?r=categoria');
      }
 
+     verifica(usuario){
+      return this.http.get(this.baseApi + 'usuario.php?acao=ativacao&USUARIO=' + usuario);
+     }
+
+
 }

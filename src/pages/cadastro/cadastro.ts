@@ -3,14 +3,15 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 import swal from 'sweetalert';
 import { ApiProvider } from '../../providers/api/api';
 import { HomePage } from '../home/home';
-
+import { BrMaskerModule, BrMaskerIonicServices3 } from 'brmasker-ionic-3';
 
 @IonicPage()
 @Component({
   selector: 'page-cadastro',
   templateUrl: 'cadastro.html',
   providers: [
-    ApiProvider
+    ApiProvider,
+    BrMaskerModule
   ]
 })
 export class CadastroPage {
@@ -27,6 +28,7 @@ export class CadastroPage {
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
     public ApiProvider: ApiProvider,
+    private brmasker: BrMaskerModule
     ) {
   }
 
@@ -62,7 +64,7 @@ if(this.DADOS.STATUS === '1'){
   localStorage.setItem("ETAPA", "1");
   localStorage.setItem("NOME", this.DADOS.NOME);
   localStorage.setItem("USUARIO", this.DADOS.USUARIO);
-  localStorage.setItem("EMAIL", this.DADOS.EMAIL);
+  localStorage.setItem("TELEFONE", this.DADOS.TELEFONE);
   localStorage.setItem("ID", this.DADOS.ID);
   localStorage.setItem("ATIVACAO", this.DADOS.ATIVACAO);
   swal("Pronto!", "Você foi cadastrado com sucesso.", "success").then((value) => {

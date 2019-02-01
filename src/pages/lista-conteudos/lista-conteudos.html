@@ -11,7 +11,7 @@
 
 
 
-<ion-content   class="body-background" style="padding-right: 5px;">
+<ion-content   class="body-background" style="padding-right: 5px;" *ngIf="ATIVACAO == 1">
 
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 
@@ -24,3 +24,17 @@
 
 
 </ion-content>
+
+
+
+<ion-content class="body-background" *ngIf="ATIVACAO != 1" style="text-align: center;">
+
+
+<br><br>
+<br><br>
+<h1>Você precisa<br>ativar a sua conta!</h1>
+<button ion-button color="secondary" (click)="ativar()">ATIVAR CONTA</button>
+
+
+</ion-content>
+

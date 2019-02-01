@@ -22,7 +22,7 @@
   <br>
 
   <ion-item class="body-input"  no-lines >
-    <ion-input type="email" placeholder="E-mail" [(ngModel)]="EMAIL" ></ion-input>
+    <ion-input type="fone" placeholder="Telefone" [(ngModel)]="EMAIL" [brmasker]="{phone: true}"></ion-input>
   </ion-item>
   <br>
   <button ion-button full class="botao-login" (click)="cadastrar()"><b>CADASTRAR</b></button>

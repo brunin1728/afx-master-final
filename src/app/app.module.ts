@@ -18,6 +18,8 @@ import { ApiProvider } from '../providers/api/api';
 import { HttpModule } from '@angular/http';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { PaginaHtmlPage } from '../pages/pagina-html/pagina-html';
+import { BrMaskerModule } from 'brmasker-ionic-3';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { PaginaHtmlPage } from '../pages/pagina-html/pagina-html';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    BrMaskerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
