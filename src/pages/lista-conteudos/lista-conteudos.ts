@@ -23,7 +23,12 @@ export class ListaConteudosPage {
   public CAT: any = this.navParams.get("id");
   public ATIVACAO: any = localStorage.getItem('ATIVACAO');
   public ID = localStorage.getItem('ID');
+  public lista2: any;
 
+  public refresher;
+  public isRefreshing: boolean = false;
+  public page = 1;
+  public infiniteScroll;
 
   constructor(
     public navCtrl: NavController,
@@ -61,7 +66,7 @@ let url = "http://afxconsult.top/admin/pagar/?id=" +  this.ID;
 
   AbreCarregando() {
     this.loader = this.loadingCtrl.create({
-      content: "Carregando..."
+      content: "Carregando conteúdos..."
     });
     this.loader.present();
   }
@@ -71,32 +76,83 @@ FechaCarregando(){
 }
 
 
+doRefresh(refresher) {
+  this.refresher = refresher;
+  this.isRefreshing = true;
+
+  this.chamarlista();
+}
 
 
-chamarlista(){
+doInfinite(infiniteScroll) {
+  this.page++;
+  this.infiniteScroll = infiniteScroll;
+  this.chamarlista(true);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+chamarlista(newpage: boolean = false){
+
 
   this.AbreCarregando();
-  this.ApiProvider.GetConteudos(this.CAT).subscribe(data=>{
+  this.ApiProvider.GetConteudos(this.CAT,this.page).subscribe(data=>{
 
      const response = (data as any);
      const objeto_retorno = JSON.parse(response._body);
 
-       this.lista = objeto_retorno.DADOS;
 
-//console.log(this.lista[0]['STATUS']);
+
+
+       if(newpage){
+        this.lista = this.lista.concat(objeto_retorno.DADOS);
+
+       this.infiniteScroll.complete();
+      }else{
+        this.lista = objeto_retorno.DADOS;
+
+
+      }
+
+
+
+
 
 if(this.lista[0]['STATUS'] === '1'){
-this.lista = objeto_retorno.DADOS;
+
 }else{
 alert("Não existe conteúdos para essa categoria!");
 }
 
 
     this.FechaCarregando();
+    if(this.isRefreshing){
+      this.refresher.complete();
+      this.isRefreshing = false;
+      console.log("zdfsa");
+
+    }
+
 
  },error=>{
    console.log(error);
    this.FechaCarregando();
+   if(this.isRefreshing){
+    this.refresher.complete();
+    this.isRefreshing = false;
+  }
  }
 
  )
@@ -105,6 +161,12 @@ alert("Não existe conteúdos para essa categoria!");
 }
 
 
+
+
+
+
+
+//FILTRO DE PESQUISA POR PALAVRA
 getItems(ev: any) {
   // Reset items back to all of the items
 

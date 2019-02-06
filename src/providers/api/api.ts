@@ -10,8 +10,8 @@ export class ApiProvider {
   constructor(public http: Http) {
 
   }
-    GetConteudos(id){
-      return this.http.get(this.baseApi + 'index.php?r=categorias&id=' + id);
+    GetConteudos(id,page = 1){
+      return this.http.get(this.baseApi + 'index.php?r=categorias&id=' + id + "&page=" + page);
      }
 
     GetConteudosId(id){

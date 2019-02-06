@@ -13,7 +13,7 @@
 
 <ion-content   class="body-background" style="padding-right: 5px;" *ngIf="ATIVACAO == 1">
 
-  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-searchbar (ionInput)="getItems($event)" placeholder="Pesguisar" ></ion-searchbar>
 
 
     <ion-list no-lines id="myInput">
@@ -21,6 +21,14 @@
           {{ item.TITULO }}
         </button>
     </ion-list>
+
+
+
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+
 
 
 </ion-content>

@@ -19,6 +19,7 @@ import { HttpModule } from '@angular/http';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { PaginaHtmlPage } from '../pages/pagina-html/pagina-html';
 import { BrMaskerModule } from 'brmasker-ionic-3';
+import { FiltroPage } from '../pages/filtro/filtro';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { BrMaskerModule } from 'brmasker-ionic-3';
     LoginPage,
     CadastroPage,
     PaginaHtmlPage,
-    SuportePage
+    SuportePage,
+    FiltroPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { BrMaskerModule } from 'brmasker-ionic-3';
     LoginPage,
     CadastroPage,
     PaginaHtmlPage,
-    SuportePage
+    SuportePage,
+    FiltroPage
   ],
   providers: [
     StatusBar,
