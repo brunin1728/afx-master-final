@@ -3,15 +3,32 @@
 
 }
 
+
+
+ion-searchbar{
+
+
+  .searchbar-input-container{
+      .searchbar-input{
+        background-color: #000;
+        border: 1px solid #292929 !important;
+          color: #fff
+      }
+      .searchbar-search-icon {
+        background-image: url("../assets/imgs/lupa.png");
+
+      }
+  }
+}
 .header2 {
 
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 }
 
 .tolbar{
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
   padding-top: 5px;
 }
 
@@ -24,13 +41,14 @@
   border-bottom-right-radius: 40px;
   border-top-left-radius: 0px !important;
   border-top-right-radius: 0px;
+  padding-right: 50px !important;
 }
 
 ion-title {
   width: 100%;
   height: 100%;
   text-align: center;
-  margin-left: 15px
+  padding-left: 50px !important;
 }
 
 .ion-button {
@@ -77,3 +95,36 @@ ion-header ion-icon.back-button-icon.icon {
   color: #fff;
   z-index: 999999999999 !important;
 }
+
+.selector {
+  line-height: 1.2;
+  letter-spacing: 0.1px;
+  color: #29235e;
+  width: 100% !important;
+  max-width: 100% !important;
+  justify-content: center;
+  border: solid 2px #e8ebf0;
+  background-color: #ffffff;
+}
+.option {
+  font-family: SFNSDisplay;
+  line-height: 1.2;
+  letter-spacing: 0.1px;
+  color: #29235e;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 20px;
+}
+
+
+.botao-filtro{
+  background-color: #000;
+  border: 1px solid #292929 !important;
+  text-align: left;
+  background-image: url('../assets/imgs/filtro2.png');
+  background-size: 28px;
+  background-position: 12px 8px;
+  background-repeat: no-repeat;
+  padding-left: 55px;
+  color: rgba(255,255,255,0.5);
+  }

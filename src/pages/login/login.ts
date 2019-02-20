@@ -1,3 +1,4 @@
+import { TermosusoPage } from './../termosuso/termosuso';
 import { CadastroPage } from './../cadastro/cadastro';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
@@ -47,7 +48,7 @@ FechaCarregando(){
 
 
 cadastre(){
-  this.navCtrl.push(CadastroPage);
+  this.navCtrl.push(TermosusoPage);
 }
 
 

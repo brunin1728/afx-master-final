@@ -1,18 +1,29 @@
-<!--
-  Generated template for the FiltroPage page.
+<ion-header class="tolbar">
+  <ion-navbar class="header2">
+    <button ion-button menuToggle right class="ion-button">
+      <ion-icon name="menu" style="color: #fff"></ion-icon>
+    </button>
+    <ion-title><img src="assets/imgs/logo.png" width="120px"></ion-title>
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>filtro</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content padding>
+
+<ion-content class="body-background">
+
+
+
+
+
+
+  <ion-list>
+         <h4>&nbsp;&nbsp;&nbsp;Escolha uma Categoria:</h4>
+
+      <button  class="item item-block item-ios"  ion-item *ngFor="let l of lista" (click)="abrir(l.ID_CAT)" style="background-color: #000; color: #fff">
+        {{l.TITULO}}
+      </button>
+    </ion-list>
+
 
 </ion-content>

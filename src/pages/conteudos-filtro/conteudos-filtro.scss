@@ -1,0 +1,32 @@
+page-conteudos-filtro {
+  .botao-lista{
+    background-color: #292929;
+    border: none;
+    margin-top: 5px;
+    text-align: center;
+
+    }
+
+    .botao-filtro{
+      text-align: center;
+      background-image: none;
+      padding-left: 0px;
+
+      }
+
+
+    #myInput{
+      padding-right: 10px !important;
+
+      padding-left: 8px;
+      padding-right: 8px !important;
+
+    }
+
+    ion-title {
+      height: 100%;
+      padding-right: 100px !important;
+    }
+
+
+}

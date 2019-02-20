@@ -11,15 +11,17 @@
 
 
 
-<ion-content   class="body-background" style="padding-right: 5px; " *ngIf="ATIVACAO == 1">
+<ion-content   class="body-background" style="padding-right: 5px;" *ngIf="ATIVACAO == 1">
+
 
   <ion-searchbar (ionInput)="getItems($event)" placeholder="Pesguisa..." ></ion-searchbar>
 
-  <ion-list no-lines id="myInput" (click)="filtro()">
-    <button ion-item class="body-background botao-filtro" >
-     Filtro
-    </button>
-</ion-list>
+    <ion-list no-lines id="myInput">
+      <button ion-item class="body-background botao-filtro" >
+       Montadora
+      </button>
+  </ion-list>
+
 
 
     <ion-list no-lines id="myInput">
@@ -31,9 +33,6 @@
 
 
 
-    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-        <ion-infinite-scroll-content></ion-infinite-scroll-content>
-      </ion-infinite-scroll>
 
 
 
@@ -41,14 +40,5 @@
 
 
 
-<ion-content class="body-background" *ngIf="ATIVACAO != 1" style="text-align: center;">
 
-
-<br><br>
-<br><br>
-<h1>Você precisa<br>ativar a sua conta!</h1>
-<button ion-button color="secondary" (click)="ativar()">ATIVAR CONTA</button>
-
-
-</ion-content>
 

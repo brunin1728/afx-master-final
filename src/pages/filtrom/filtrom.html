@@ -1,0 +1,33 @@
+<ion-header class="tolbar">
+    <ion-navbar class="header2">
+      <button ion-button menuToggle right class="ion-button">
+        <ion-icon name="menu" style="color: #fff"></ion-icon>
+      </button>
+      <ion-title><img src="assets/imgs/logo.png" width="100px"></ion-title>
+
+    </ion-navbar>
+  </ion-header>
+
+
+
+  <ion-content class="body-background" style="padding-right: 5px; ">
+
+
+    <ion-searchbar (ionInput)="getItems($event)" placeholder="Pesguisa..." ></ion-searchbar>
+
+    <ion-list no-lines id="myInput" (click)="filtro()">
+      <button ion-item class="body-background botao-filtro" >
+       Montadora
+      </button>
+  </ion-list>
+
+
+
+    <ion-list no-lines id="myInput">
+        <button  class="item item-block item-ios"  ion-item *ngFor="let l of lista" (click)="abrir(l.ID_PDT)" class="body-background botao-lista">
+          {{l.TITULO}}
+        </button>
+      </ion-list>
+
+
+  </ion-content>

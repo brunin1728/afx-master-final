@@ -37,5 +37,20 @@ export class ApiProvider {
       return this.http.get(this.baseApi + 'usuario.php?acao=ativacao&USUARIO=' + usuario);
      }
 
+     getfiltro(){
+      return this.http.get(this.baseApi + 'index.php?r=filtro');
+     }
+
+
+     filtro1(m){
+
+      return this.http.get(this.baseApi + 'index.php?r=filtro1&id=' + m);
+     }
+
+
+     GetConteudosF(id,cat,page = 1){
+      return this.http.get(this.baseApi + 'index.php?r=FiltroCont&id=' + id + "&cat=" + cat + "&page=" + page);
+     }
+
 
 }

@@ -1,3 +1,4 @@
+import { FiltroPage } from './../pages/filtro/filtro';
 import { PaginaHtmlPage } from './../pages/pagina-html/pagina-html';
 import { LoginPage } from './../pages/login/login';
 import { Component, ViewChild } from '@angular/core';
@@ -19,13 +20,21 @@ export class MyApp {
   public ETAPA: any;
   rootPage: any;
   private IF_ETAPA = localStorage.getItem('ETAPA') ? localStorage.getItem('ETAPA').length : null;
+  private NOME1 = localStorage.getItem('NOME') ? localStorage.getItem('NOME').length : null;
    pages: Array<{title: string, component: any}>;
    public ATIVACAO1 = localStorage.getItem('ATIVACAO') ? localStorage.getItem('ATIVACAO').length : 0;
    public ATIVACAO: any;
    public lista: any;
    public ATIVO: any;
    public USER: any;
+   public NOME: any;
 
+
+   vernome(){
+     if(this.NOME1){
+      this.NOME = localStorage.getItem('NOME');
+     }
+   }
 
   etapas(){
 
@@ -53,6 +62,7 @@ export class MyApp {
     public ApiProvider: ApiProvider,
     ) {
 
+  this.vernome();
   this.verificar();
   this.chamarlista();
   this.etapas();

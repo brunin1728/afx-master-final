@@ -1,27 +1,21 @@
-import { FiltromPage } from './../filtrom/filtrom';
-import { ConteudohtmlPage } from './../conteudohtml/conteudohtml';
-import { VerPdfPage } from './../ver-pdf/ver-pdf';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
-import { Searchbar } from 'ionic-angular';
-import { InAppBrowserOptions, InAppBrowser } from '@ionic-native/in-app-browser';
-
+import { ConteudohtmlPage } from '../conteudohtml/conteudohtml';
+import { VerPdfPage } from '../ver-pdf/ver-pdf';
 
 
 
 @IonicPage()
 @Component({
-  selector: 'page-lista-conteudos',
-  templateUrl: 'lista-conteudos.html',
-  providers: [
-    ApiProvider
-  ]
+  selector: 'page-conteudos-filtro',
+  templateUrl: 'conteudos-filtro.html',
 })
-export class ListaConteudosPage {
-   public lista: any;
+export class ConteudosFiltroPage {
+  public lista: any;
   loader: any;
-  public CAT: any = this.navParams.get("id");
+  public MODEL: any = this.navParams.get("id");
+  public CAT: any = this.navParams.get("cat");
   public ATIVACAO: any = localStorage.getItem('ATIVACAO');
   public ID = localStorage.getItem('ID');
   public lista2: any;
@@ -36,10 +30,10 @@ export class ListaConteudosPage {
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
     public ApiProvider: ApiProvider,
-    private iab: InAppBrowser,
     ) {
 if(this.ATIVACAO === '1'){
   this.chamarlista();
+
 }
 
 
@@ -54,16 +48,7 @@ if(tipo === '1'){
 }
 }
 
-ativar(){
-  const options: InAppBrowserOptions = {
-    zoom: 'no',
-    location: 'yes'
-  }
-let url = "http://afxconsult.top/admin/pagar/?id=" +  this.ID;
- const browser = this.iab.create(url, '_system', options);
 
-
-}
 
   AbreCarregando() {
     this.loader = this.loadingCtrl.create({
@@ -96,22 +81,12 @@ doInfinite(infiniteScroll) {
 
 
 
-
-
-
-filtro(){
-  this.navCtrl.push(FiltromPage, { id: this.CAT});
-}
-
-
-
-
-
 chamarlista(newpage: boolean = false){
 
+//console.log(this.MODEL);
 
   this.AbreCarregando();
-  this.ApiProvider.GetConteudos(this.CAT,this.page).subscribe(data=>{
+  this.ApiProvider.GetConteudosF(this.MODEL,this.CAT,this.page).subscribe(data=>{
 
      const response = (data as any);
      const objeto_retorno = JSON.parse(response._body);
@@ -136,7 +111,7 @@ chamarlista(newpage: boolean = false){
 if(this.lista[0]['STATUS'] === '1'){
 
 }else{
-alert("Não existe conteúdos para essa categoria!");
+alert("Não foi possível encontrar um conteúdo com essas informações.");
 }
 
 
@@ -144,7 +119,7 @@ alert("Não existe conteúdos para essa categoria!");
     if(this.isRefreshing){
       this.refresher.complete();
       this.isRefreshing = false;
-      console.log("zdfsa");
+
 
     }
 
@@ -180,7 +155,7 @@ getItems(ev: any) {
   // if the value is an empty string don't filter the items
   if (val && val.trim() != '') {
     this.lista = this.lista.filter((item) => {
-      return (item.TAGS.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      return (item.TITULO.toLowerCase().indexOf(val.toLowerCase()) > -1);
     })
   }else{
     this.chamarlista();
@@ -202,7 +177,3 @@ ionViewDidEnter() {
 
 }
 }
-
-
-
-

@@ -1,3 +1,7 @@
+import { TermosusoPage } from './../pages/termosuso/termosuso';
+import { ConteudosFiltroPage } from './../pages/conteudos-filtro/conteudos-filtro';
+import { FiltromPage } from './../pages/filtrom/filtrom';
+import { FiltromodelPage } from './../pages/filtromodel/filtromodel';
 import { SuportePage } from './../pages/suporte/suporte';
 import { CadastroPage } from './../pages/cadastro/cadastro';
 import { LoginPage } from './../pages/login/login';
@@ -34,7 +38,11 @@ import { FiltroPage } from '../pages/filtro/filtro';
     CadastroPage,
     PaginaHtmlPage,
     SuportePage,
-    FiltroPage
+    FiltroPage,
+    FiltromodelPage,
+    FiltromPage,
+    ConteudosFiltroPage,
+    TermosusoPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +62,11 @@ import { FiltroPage } from '../pages/filtro/filtro';
     CadastroPage,
     PaginaHtmlPage,
     SuportePage,
-    FiltroPage
+    FiltroPage,
+    FiltromodelPage,
+    FiltromPage,
+    ConteudosFiltroPage,
+    TermosusoPage
   ],
   providers: [
     StatusBar,
