@@ -16,6 +16,7 @@ export class ConteudohtmlPage {
   loader: any;
   public ID: any = this.navParams.get("id");
 
+  public NOME: any;
   public HEADER: any;
   public OLEO_LR: any;
   public OLEO_CO: any;
@@ -63,6 +64,7 @@ FechaCarregando(){
          this.lista = objeto_retorno.DADOS;
 
      this.HEADER = this.lista.HEADER;
+     this.NOME = this.lista.NOME;
      this.OLEO_LR = this.lista.OLEO_LR;
      this.OLEO_CO = this.lista.OLEO_CO;
      this.OLEO_IT = this.lista.OLEO_IT;

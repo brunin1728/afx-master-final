@@ -181,5 +181,11 @@ verificar(){
     this.nav.setRoot(ListaConteudosPage, { id: page});
   }
 
+  sair() {
+    localStorage.clear();
+    this.nav.setRoot(LoginPage);
+  }
+
+
 
 }

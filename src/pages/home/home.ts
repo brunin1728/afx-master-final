@@ -5,6 +5,7 @@ import { ListaConteudosPage } from '../lista-conteudos/lista-conteudos';
 import swal from 'sweetalert';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { FiltromPage } from '../filtrom/filtrom';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 export class HomePage {
   public ATIVACAO: any = localStorage.getItem('ATIVACAO');
   public ID = localStorage.getItem('ID');
-
+  public CAT: any;
 
 
   constructor(
@@ -25,18 +26,24 @@ export class HomePage {
       splashScreen.hide();
   }
 
+
 ativar(){
   const options: InAppBrowserOptions = {
     zoom: 'no',
     location: 'yes'
   }
-let url = "http://afxconsult.top/admin/pagar/?id=" +  this.ID;
+let url = "http://78.46.69.126/~afxconsu/admin/pagar/?id=" +  this.ID;
  const browser = this.iab.create(url, '_system', options);
 
 
 }
 
-  abrir(id){
+
+abrir(id){
+  this.navCtrl.push(FiltromPage, { id: id});
+}
+
+  abrir_ABTIGO(id){
     this.navCtrl.setRoot(ListaConteudosPage, { id: id});
   }
 
