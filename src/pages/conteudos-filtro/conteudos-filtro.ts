@@ -1,3 +1,4 @@
+import { AbrirlinkPage } from './../abrirlink/abrirlink';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
@@ -40,11 +41,13 @@ if(this.ATIVACAO === '1'){
 
   }
 
-abrirPdf(id,tipo,arquivo){
+abrirPdf(id,tipo,arquivo,link){
 if(tipo === '1'){
   this.navCtrl.push(ConteudohtmlPage, { id: id});
-}else{
+}else if(tipo === '0'){
   this.navCtrl.push(VerPdfPage, { id: arquivo});
+}else if(tipo === '2'){
+  this.navCtrl.push(AbrirlinkPage, { id: link});
 }
 }
 

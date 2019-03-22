@@ -1,3 +1,4 @@
+import { AbrirlinkPage } from './../pages/abrirlink/abrirlink';
 import { TermosusoPage } from './../pages/termosuso/termosuso';
 import { ConteudosFiltroPage } from './../pages/conteudos-filtro/conteudos-filtro';
 import { FiltromPage } from './../pages/filtrom/filtrom';
@@ -42,7 +43,8 @@ import { FiltroPage } from '../pages/filtro/filtro';
     FiltromodelPage,
     FiltromPage,
     ConteudosFiltroPage,
-    TermosusoPage
+    TermosusoPage,
+    AbrirlinkPage
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,8 @@ import { FiltroPage } from '../pages/filtro/filtro';
     FiltromodelPage,
     FiltromPage,
     ConteudosFiltroPage,
-    TermosusoPage
+    TermosusoPage,
+    AbrirlinkPage
   ],
   providers: [
     StatusBar,
