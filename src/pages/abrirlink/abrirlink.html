@@ -1,18 +1,17 @@
-<!--
-  Generated template for the AbrirlinkPage page.
+<ion-header class="tolbar2">
+  <ion-navbar >
+    <button ion-button menuToggle right class="ion-button">
+      <ion-icon name="menu" style="color: #fff"></ion-icon>
+    </button>
+    <ion-title><img src="assets/imgs/logo.png" width="100px"></ion-title>
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>abrirlink</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content padding>
+
+<ion-content class="body-background">
+
+  <iframe *ngIf="Link" [src]="sanitizer.bypassSecurityTrustResourceUrl(Link)" width="100%" height="100%" frameborder="0" ></iframe>
 
 </ion-content>

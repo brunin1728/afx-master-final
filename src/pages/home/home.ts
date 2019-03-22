@@ -32,7 +32,7 @@ ativar(){
     zoom: 'no',
     location: 'yes'
   }
-let url = "http://78.46.69.126/~afxconsu/admin/pagar/?id=" +  this.ID;
+let url = "https://www.afxconsult.tk/admin/pagar/?id=" +  this.ID;
  const browser = this.iab.create(url, '_system', options);
 
 

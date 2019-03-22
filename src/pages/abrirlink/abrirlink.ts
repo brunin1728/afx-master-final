@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DomSanitizer } from '@angular/platform-browser';
 
-/**
- * Generated class for the AbrirlinkPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -14,12 +9,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'abrirlink.html',
 })
 export class AbrirlinkPage {
+   public Link: any = this.navParams.get("id");
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public sanitizer: DomSanitizer
+    ) {
   }
 
+
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AbrirlinkPage');
+
   }
 
 }
