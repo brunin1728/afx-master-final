@@ -2,6 +2,7 @@ import { FiltromodelPage } from './../filtromodel/filtromodel';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 
 @IonicPage()
@@ -14,14 +15,15 @@ export class FiltromPage {
   loader: any;
   public toppings: any;
   public CATEGORIA = this.navParams.get('id');
-
-
+  public ID = localStorage.getItem('ID');
+  public ATIVACAO: any = localStorage.getItem('ATIVACAO');
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public ApiProvider: ApiProvider,
     public loadingCtrl: LoadingController,
+    private iab: InAppBrowser,
     ) {
       this.chamarlista();
   }
@@ -31,6 +33,17 @@ export class FiltromPage {
     this.navCtrl.push(FiltromodelPage, { id: id, cat: this.CATEGORIA});
   }
 
+
+  ativar(){
+    const options: InAppBrowserOptions = {
+      zoom: 'no',
+      location: 'yes'
+    }
+  let url = "http://afxconsult.tk/admin/pagar/?id=" +  this.ID;
+   const browser = this.iab.create(url, '_system', options);
+
+
+  }
 
 
   filtro() {
@@ -83,6 +96,7 @@ chamarlista(){
 
   ionViewDidEnter() {
 
+console.log(this.ATIVACAO);
 
   }
 

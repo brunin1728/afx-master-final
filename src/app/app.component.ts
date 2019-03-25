@@ -1,3 +1,4 @@
+import { AtivarPage } from './../pages/ativar/ativar';
 import { FiltroPage } from './../pages/filtro/filtro';
 import { PaginaHtmlPage } from './../pages/pagina-html/pagina-html';
 import { LoginPage } from './../pages/login/login';
@@ -81,14 +82,12 @@ export class MyApp {
 
     if(this.ATIVACAO == '1'){
       this.pages = [
-        { title: 'Início', component: HomePage },
-        { title: 'Teste Html Externo', component: PaginaHtmlPage },
+        { title: 'Início', component: HomePage }
       ];
     }else{
       this.pages = [
         { title: 'Início', component: HomePage },
-        { title: 'Ativar Plano', component: HomePage },
-        { title: 'Teste Html Externo', component: PaginaHtmlPage },
+        { title: 'Ativar Plano', component: AtivarPage },
       ];
     }
 
