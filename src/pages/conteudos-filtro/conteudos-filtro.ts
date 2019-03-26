@@ -1,6 +1,7 @@
+import { SuportePage } from './../suporte/suporte';
 import { AbrirlinkPage } from './../abrirlink/abrirlink';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { ConteudohtmlPage } from '../conteudohtml/conteudohtml';
 import { VerPdfPage } from '../ver-pdf/ver-pdf';
@@ -31,6 +32,7 @@ export class ConteudosFiltroPage {
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
     public ApiProvider: ApiProvider,
+    public alertCtrl: AlertController
     ) {
 if(this.ATIVACAO === '1'){
   this.chamarlista();
@@ -114,7 +116,8 @@ chamarlista(newpage: boolean = false){
 if(this.lista[0]['STATUS'] === '1'){
 
 }else{
-alert("Não foi possível encontrar um conteúdo com essas informações.");
+//alert("Não foi possível encontrar um conteúdo com essas informações.");
+this.showConfirm();
 }
 
 
@@ -179,4 +182,39 @@ ionViewDidEnter() {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+showConfirm() {
+  const confirm = this.alertCtrl.create({
+    title: '',
+    message: 'Este Conteúdo não esta disponível em nosso formato. Entre em contato com o suporte Técnico.',
+    buttons: [
+      {
+        text: "Suporte técnico",
+        handler: () => {
+          this.navCtrl.push(SuportePage);
+        }
+      }
+    ],
+    cssClass: 'alertCustomCss'
+  });
+  confirm.present();
+}
+
+
+
+
+
+
 }
