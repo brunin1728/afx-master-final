@@ -11,6 +11,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ApiProvider } from '../providers/api/api';
 import { ListaConteudosPage } from '../pages/lista-conteudos/lista-conteudos';
+import { FiltromPage } from '../pages/filtrom/filtrom';
 
 @Component({
   templateUrl: 'app.html'
@@ -177,7 +178,7 @@ verificar(){
   openPage2(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(ListaConteudosPage, { id: page});
+    this.nav.push(FiltromPage, { id: page});
   }
 
   sair() {

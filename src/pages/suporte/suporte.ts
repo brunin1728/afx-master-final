@@ -24,7 +24,7 @@ export class SuportePage {
       zoom: 'no',
       location: 'yes'
     }
-  let url = "https://api.whatsapp.com/send?phone=5521990904372";
+  let url = "https://api.whatsapp.com/send?phone=553125552526";
    const browser = this.iab.create(url, '_system', options);
 
   }
