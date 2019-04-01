@@ -29,4 +29,11 @@ export class SuportePage {
 
   }
 
+
+  email(){
+
+    window.open("mailto:suporte.afx@gmail.com", '_system');
+
+}
+
 }

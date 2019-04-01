@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { InAppBrowserOptions, InAppBrowser } from '@ionic-native/in-app-browser';
+import { ApiProvider } from '../../providers/api/api';
 
 
 @IonicPage()
@@ -14,6 +15,7 @@ export class AtivarPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private iab: InAppBrowser,
+    public ApiProvider: ApiProvider,
     ) {
   }
 
@@ -25,7 +27,7 @@ export class AtivarPage {
       zoom: 'no',
       location: 'yes'
     }
-  let url = "http://afxconsult.tk/admin/pagar/?id=" +  this.ID;
+  let url = this.ApiProvider.baseUrl + "/admin/pagar/?id=" +  this.ID;
    const browser = this.iab.create(url, '_system', options);
 
 

@@ -30,7 +30,7 @@ export class ConteudohtmlPage {
   public DIRECAOH_IT: any;
   public SISTEMADEAM_CA: any;
   public SISTEMADEAM_IT: any;
-
+  public URLBASE: any = this.ApiProvider.baseUrl;
 
   constructor(
     public navCtrl: NavController,

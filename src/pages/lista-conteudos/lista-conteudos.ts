@@ -59,7 +59,7 @@ ativar(){
     zoom: 'no',
     location: 'yes'
   }
-let url = "http://afxconsult.top/admin/pagar/?id=" +  this.ID;
+let url = this.ApiProvider.baseUrl + "/admin/pagar/?id=" +  this.ID;
  const browser = this.iab.create(url, '_system', options);
 
 

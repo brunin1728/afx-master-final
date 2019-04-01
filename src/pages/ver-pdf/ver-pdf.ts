@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
+import { ApiProvider } from '../../providers/api/api';
 
 
 
@@ -24,11 +25,12 @@ export class VerPdfPage implements PipeTransform {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    public ApiProvider: ApiProvider,
     ) {
       console.log(this.ID);
 
-      this.pdfLink = "http://afxconsult.tk/admin/arquivos/conteudos/"+this.ID;
+      this.pdfLink = this.ApiProvider.baseUrl + "/admin/arquivos/conteudos/"+this.ID;
   }
 
 

@@ -5,7 +5,7 @@ import { IonicPage, NavController, NavParams, LoadingController, AlertController
 import { ApiProvider } from '../../providers/api/api';
 import { ConteudohtmlPage } from '../conteudohtml/conteudohtml';
 import { VerPdfPage } from '../ver-pdf/ver-pdf';
-
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 
 @IonicPage()
@@ -21,6 +21,7 @@ export class ConteudosFiltroPage {
   public ATIVACAO: any = localStorage.getItem('ATIVACAO');
   public ID = localStorage.getItem('ID');
   public lista2: any;
+  public Link: any;
 
   public refresher;
   public isRefreshing: boolean = false;
@@ -32,7 +33,8 @@ export class ConteudosFiltroPage {
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
     public ApiProvider: ApiProvider,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    private iab: InAppBrowser
     ) {
 if(this.ATIVACAO === '1'){
   this.chamarlista();
@@ -43,13 +45,32 @@ if(this.ATIVACAO === '1'){
 
   }
 
+
+
+  abrir(l){
+
+    const options: InAppBrowserOptions = {
+      zoom: 'no',
+      hideurlbar: 'yes',
+      toolbarcolor: '#292929',
+      closebuttoncolor: '#d6d6d6'
+    }
+  let url = l;
+   const browser = this.iab.create(url, '_blank', options);
+
+  }
+
+
+
+
+
 abrirPdf(id,tipo,arquivo,link){
 if(tipo === '1'){
   this.navCtrl.push(ConteudohtmlPage, { id: id});
 }else if(tipo === '0'){
   this.navCtrl.push(VerPdfPage, { id: arquivo});
 }else if(tipo === '2'){
-  this.navCtrl.push(AbrirlinkPage, { id: link});
+  this.abrir(link);
 }
 }
 

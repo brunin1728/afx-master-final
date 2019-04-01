@@ -39,7 +39,7 @@ export class FiltromPage {
       zoom: 'no',
       location: 'yes'
     }
-  let url = "http://afxconsult.tk/admin/pagar/?id=" +  this.ID;
+  let url = this.ApiProvider.baseUrl + "/admin/pagar/?id=" +  this.ID;
    const browser = this.iab.create(url, '_system', options);
 
 

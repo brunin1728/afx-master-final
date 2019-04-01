@@ -6,6 +6,7 @@ import swal from 'sweetalert';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FiltromPage } from '../filtrom/filtrom';
+import { ApiProvider } from '../../providers/api/api';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class HomePage {
     public navCtrl: NavController,
     private iab: InAppBrowser,
     public splashScreen: SplashScreen,
+    public ApiProvider: ApiProvider,
     ) {
       splashScreen.hide();
   }
@@ -32,7 +34,7 @@ ativar(){
     zoom: 'no',
     location: 'yes'
   }
-let url = "https://www.afxconsult.tk/admin/pagar/?id=" +  this.ID;
+let url = this.ApiProvider.baseUrl + "/admin/pagar/?id=" +  this.ID;
  const browser = this.iab.create(url, '_system', options);
 
 
