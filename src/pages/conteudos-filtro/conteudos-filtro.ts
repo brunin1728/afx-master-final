@@ -219,7 +219,7 @@ ionViewDidEnter() {
 showConfirm() {
   const confirm = this.alertCtrl.create({
     title: '',
-    message: 'Este Conteúdo não esta disponível em nosso formato. Entre em contato com o suporte Técnico.',
+    message: 'Este conteúdo não esta disponível em nosso formato. Entre em contato com o suporte técnico.',
     buttons: [
       {
         text: "Suporte técnico",

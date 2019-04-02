@@ -11,15 +11,15 @@
 
 <img src="assets/imgs/logo-usuario.png" width="100%" style="padding-left: 70px; padding-right: 70px; padding-bottom: 10px">
 <ion-item class="body-input" no-lines >
-  <ion-input type="text" placeholder="Login" [(ngModel)]="USUARIO" ></ion-input>
+  <ion-input type="text" placeholder="Login" [(ngModel)]="USUARIO"  style="padding-left: 10px; padding-right: 10px; height: 45px;"></ion-input>
 </ion-item>
 <br>
 <ion-item class="body-input"  no-lines >
-  <ion-input type="password" placeholder="Senha" [(ngModel)]="SENHA" ></ion-input>
+  <ion-input type="password" placeholder="Senha" [(ngModel)]="SENHA" style="padding-left: 10px; padding-right: 10px; height: 45px;"></ion-input>
 </ion-item>
 <br>
-<button ion-button full class="botao-login" (click)="login()" style="background-color: #292929;"><b>ENTRAR</b></button>
+<button ion-button full class="botao-login" (click)="login()" style="background-color: #292929; height: 45px;padding-left: 10px; padding-right: 10px; font-size: 20px"><b>ENTRAR</b></button>
 <Br>
-  <a (click)="cadastre()" style="color: #fff">Cadastre-se</a>
+  <a (click)="cadastre()" style="color: #fff; font-size: 20px">Cadastre-se</a>
 
 </ion-content>
