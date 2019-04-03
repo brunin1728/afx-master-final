@@ -9,6 +9,8 @@ import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser'
   templateUrl: 'suporte.html',
 })
 export class SuportePage {
+  public ATIVACAO: any = localStorage.getItem('ATIVACAO');
+
 
   constructor(
     public navCtrl: NavController,
