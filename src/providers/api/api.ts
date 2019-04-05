@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ApiProvider {
 
-  private baseApi = "http://afxconsult.tk/admin/app/";
-  public baseUrl = "http://afxconsult.tk";
+  private baseApi = "http://www.appafxconsult.com/admin/app/";
+  public baseUrl = "http://www.appafxconsult.com";
 
   constructor(public http: Http) {
 
